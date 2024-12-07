@@ -47,18 +47,16 @@ The CSV file will contain three sections:
 ## Most Accessed Endpoint:</br>
 **Columns:** Endpoint, Access Count
  ## Suspicious Activity:</br>
-**Columns:** IP Address, Failed Login Count
-Example
-Terminal Output
-yaml
-Copy code
-Requests per IP Address:
+**Columns:** IP Address, Failed Login Count</br>
+
+## Terminal Output
+**Requests per IP Address**
 203.0.113.5: 8
 198.51.100.23: 8
 192.168.1.1: 7
 10.0.0.2: 6
 
-Most Frequently Accessed Endpoint: /login (Accessed 13 times)
-
-Suspicious Activity Detected:
-IP 203.0.113.5 has 8 failed login attempts
+**Most Frequently Accessed Endpoint**</br>
+/login (Accessed 13 times)</br>
+**Suspicious Activity Detected**</br>
+IP 203.0.113.5 has 8 failed login attempts</br>
