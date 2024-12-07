@@ -30,7 +30,7 @@ git clone https://github.com/SHAIK-GHOUSE1/log_analysis_project.git
 python log_analysis.py
 
 ## **How It Works**
-**Log Parsing**: The script reads and parses the log file line by line using regular expressions.
+**Log Parsing**: The script reads and parses the log file line by line using regular expressions.</br>
 **Data Extraction**: Information such as IP addresses, request endpoints, and status codes are extracted.
 ## **Analysis:**
 The number of requests per IP is calculated.
