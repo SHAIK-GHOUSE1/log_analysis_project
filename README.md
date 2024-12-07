@@ -20,7 +20,7 @@ This project analyzes web server log files to gather insights on the traffic, en
 - **Python** (for scripting and data analysis)
 - **CSV** (for data storage and reporting)
 - **Regular Expressions** (for log parsing)
-- **Pandas** (for data handling and analysis)
+
 
 ## **Getting Started**
 ### **1. Clone the Repository**
