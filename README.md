@@ -28,3 +28,37 @@ git clone https://github.com/SHAIK-GHOUSE1/log_analysis_project.git
 ## **2. Run the Script**
 ### Execute the script to analyze the log file:
 python log_analysis.py
+
+## **How It Works**
+**Log Parsing**: The script reads and parses the log file line by line using regular expressions.
+**Data Extraction**: Information such as IP addresses, request endpoints, and status codes are extracted.
+## **Analysis:**
+The number of requests per IP is calculated.
+The most frequently accessed endpoint is identified.
+Suspicious activity (failed login attempts) is flagged.
+**Results:**
+Displays the results in the terminal.
+Saves the results to a CSV file named log_analysis_results.csv.
+CSV Output Structure
+The CSV file will contain three sections:
+
+## Requests per IP:
+**Columns:** IP Address, Request Count
+Most Accessed Endpoint:
+**Columns:** Endpoint, Access Count
+ ## Suspicious Activity:
+**Columns:** IP Address, Failed Login Count
+Example
+Terminal Output
+yaml
+Copy code
+Requests per IP Address:
+203.0.113.5: 8
+198.51.100.23: 8
+192.168.1.1: 7
+10.0.0.2: 6
+
+Most Frequently Accessed Endpoint: /login (Accessed 13 times)
+
+Suspicious Activity Detected:
+IP 203.0.113.5 has 8 failed login attempts
