@@ -1,9 +1,11 @@
 def read_log_file(file_path):
     try:
+        # Open the file in read mode
         with open(file_path, "r") as file:
-            lines = file.readlines()
+            lines = file.readlines()  # Read all lines from the file
             return lines
     except FileNotFoundError:
+        # Print an error message if the file is not found
         print(f"Error: The file {file_path} was not found.")
         return []
 
@@ -11,8 +13,10 @@ def read_log_file(file_path):
 # Test the function
 if __name__ == "__main__":
     log_file_path = "sample.log"
-    log_lines = read_log_file(log_file_path)
-    print(f"Read {len(log_lines)} lines from {log_file_path}")
+    log_lines = read_log_file(log_file_path)  # Read the log file
+    print(
+        f"Read {len(log_lines)} lines from {log_file_path}"
+    )  # Output the number of lines read
 import re
 
 
@@ -21,25 +25,30 @@ def parse_log_line(line):
     Parse a single log line to extract the IP, endpoint, and status code.
     Returns a tuple (IP, endpoint, status_code) or None if the line is invalid.
     """
+    # Define a regular expression pattern to match log format
     log_pattern = (
         r"(?P<ip>\d+\.\d+\.\d+\.\d+) - - "
         r"\[.*?\] "
         r'"(?:GET|POST) (?P<endpoint>\S+) .*?" '
         r"(?P<status>\d+)"
     )
+    # Attempt to match the line with the defined pattern
     match = re.match(log_pattern, line)
     if match:
+        # Return a tuple of the extracted IP, endpoint, and status code
         return match.group("ip"), match.group("endpoint"), int(match.group("status"))
+    # Return None if the line doesn't match the expected format
     return None
 
 
 def process_log_file(file_path):
     parsed_data = []
     with open(file_path, "r") as file:
+        # Iterate through each line in the file
         for line in file:
-            parsed_entry = parse_log_line(line)
+            parsed_entry = parse_log_line(line)  # Parse the log line
             if parsed_entry:
-                parsed_data.append(parsed_entry)
+                parsed_data.append(parsed_entry)  # Add valid entries to the parsed data
     return parsed_data
 
 
@@ -89,16 +98,20 @@ from collections import Counter
 def parse_log_file(log_file_path):
     log_entries = []
     with open(log_file_path, "r") as file:
-        lines = file.readlines()
+        lines = file.readlines()  # Read all lines from the log file
         print(f"Read {len(lines)} lines from {log_file_path}")
         for line in lines:
             # Sample log entry: 192.168.1.1 - - [03/Dec/2024:10:12:34 +0000] "GET /home HTTP/1.1" 200 512
-            parts = line.split(" ")
-            if len(parts) > 6:
-                ip_address = parts[0]
-                endpoint = parts[6]
-                status_code = int(parts[8])
-                log_entries.append((ip_address, endpoint, status_code))
+            parts = line.split(" ")  # Split the log line into parts based on spaces
+            if len(parts) > 6:  # Ensure the line has enough parts to extract valid data
+                ip_address = parts[0]  # Extract the IP address
+                endpoint = parts[6]  # Extract the endpoint
+                status_code = int(
+                    parts[8]
+                )  # Extract and convert the status code to an integer
+                log_entries.append(
+                    (ip_address, endpoint, status_code)
+                )  # Append the parsed data to the list
     print(f"Parsed {len(log_entries)} valid log entries.")
     return log_entries
 
@@ -178,9 +191,15 @@ suspicious_ips = detect_suspicious_activity(log_entries, threshold=5)
 
 # Display the suspicious IPs
 if suspicious_ips:
-    print("Suspicious Activity Detected:")
+    print("Suspicious Activity Detected:")  # Notify if suspicious activity is found
     for ip, count in suspicious_ips.items():
-        print(f"IP {ip} has {count} failed login attempts")
-    save_suspicious_activity_to_csv(suspicious_ips)
+        print(
+            f"IP {ip} has {count} failed login attempts"
+        )  # Print the details of suspicious IPs
+    save_suspicious_activity_to_csv(
+        suspicious_ips
+    )  # Save the suspicious activity data to a CSV file
 else:
-    print("No suspicious activity detected.")
+    print(
+        "No suspicious activity detected."
+    )  # Notify if no suspicious activity is found
