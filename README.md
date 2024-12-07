@@ -49,12 +49,12 @@ The CSV file will contain three sections:
  ## Suspicious Activity:</br>
 **Columns:** IP Address, Failed Login Count</br>
 
-## Terminal Output
-**Requests per IP Address**
-203.0.113.5: 8
-198.51.100.23: 8
-192.168.1.1: 7
-10.0.0.2: 6
+## Terminal Output:</br>
+**Requests per IP Address**</br>
+203.0.113.5: 8</br>
+198.51.100.23: 8</br>
+192.168.1.1: 7</br>
+10.0.0.2: 6</br>
 
 **Most Frequently Accessed Endpoint**</br>
 /login (Accessed 13 times)</br>
